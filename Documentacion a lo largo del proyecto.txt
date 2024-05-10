@@ -1,0 +1,67 @@
+Lo que debe tener la aplicacion:
+Registro, edicion y eliminacion de personal, y que se le pueda otorgar un rol a cada uno
+registro edicion y eliminacion de clases 
+Registro edicion y eliminacion de clientes
+Equipos disponible o no disponible 
+Agregar editar o eliminar equipos 
+
+Estructura?
+personal: Permita ingresar una foto
+Acciones izquierda listado derecha 
+para editar en una pagina aparte
+Los roles ya deben estar creados y se les asigna 
+
+clientes: misma estructura del personal 
+
+Equipos: misma estructura 
+equipo que se puede ingresar:
+Máquinas cardiovasculares (cintas de correr, bicicletas estáticas, elípticas, etc.).
+Máquinas de musculación (máquinas de poleas, bancos de pesas, etc.).
+Pesas libres (barras, discos de pesas, mancuernas, etc.).
+Equipos de entrenamiento funcional (kettlebells, TRX, bandas elásticas, etc.).
+Equipos para clases grupales (colchonetas, pelotas de ejercicio, steps, etc.).
+Equipos de medición y monitoreo (pulsómetros, medidores de grasa corporal, etc.).
+Puede no necesitar de ningun equipo
+
+clases:
+Elegir que equipo quiere usar 
+elegir el personal que la va a dar
+ingresar el horario
+editar eliminar crear 
+
+interfaz para roles?
+
+
+
+
+Lenguaje: Python
+Framework: Flask
+Base de datos: Mysql
+ORM: SqlAlchemy
+
+
+
+
+
+Es mejor tener un archivo con todas las rutas y no archivos de configuracion ni la conexion a la base de datos
+Solo esta relacionado a las rutas
+
+Usamos nuestra carpeta routes
+
+Lo que nos ofrece flask en vez de importar app de app y volver a importar contact en el archivo app, que se le conoce como una dependencia circular
+Lo mejor es utilizar una funcionalidad una clase que nos da flask para dividir nuestra aplicacion en multiples partes
+Con BLUEPRINT
+Esto es como crear una seccion dentro de la aplicacion y nombrarlo de cualquier forma
+Cada Blueprint contiene rutas, vistas y plantillas relacionadas con una parte específica de tu aplicación, como autenticación, administración, perfil de usuario, etc.
+
+
+
+
+Aprendiendo a definir las rutas de la aplicacion 
+Y aprendiendo a devolver html
+En flask asi como devolvemos un string tambien podemos devolver un html
+
+Creamos un archivo html aparte
+Lo vamos a hacer en templates
+Una vez creado el html para usarlo en nuestra aplicacion importamos un modulo de flask llamado: render_template
+Este modulo lo que nos permite es procesar un archivo html para deolverlo al navegador
