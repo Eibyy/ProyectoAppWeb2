@@ -1,0 +1,12 @@
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\bin\Debug\net8.0\gimnasioElias.Model.deps.json
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\bin\Debug\net8.0\gimnasioElias.Model.dll
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\bin\Debug\net8.0\gimnasioElias.Model.pdb
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\obj\Debug\net8.0\gimnasioElias.Model.csproj.AssemblyReference.cache
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\obj\Debug\net8.0\gimnasioElias.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\obj\Debug\net8.0\gimnasioElias.Model.AssemblyInfoInputs.cache
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\obj\Debug\net8.0\gimnasioElias.Model.AssemblyInfo.cs
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\obj\Debug\net8.0\gimnasioElias.Model.csproj.CoreCompileInputs.cache
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\obj\Debug\net8.0\gimnasioElias.Model.dll
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\obj\Debug\net8.0\refint\gimnasioElias.Model.dll
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\obj\Debug\net8.0\gimnasioElias.Model.pdb
+C:\Users\byron\source\repos\gimnasioElias\gimnasioElias.Servicios\obj\Debug\net8.0\ref\gimnasioElias.Model.dll
