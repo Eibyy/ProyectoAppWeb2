@@ -1,0 +1,12 @@
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\bin\Debug\net8.0\proyectoElias.Model.deps.json
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\bin\Debug\net8.0\proyectoElias.Model.dll
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\bin\Debug\net8.0\proyectoElias.Model.pdb
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\obj\Debug\net8.0\proyectoElias.Model.csproj.AssemblyReference.cache
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\obj\Debug\net8.0\proyectoElias.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\obj\Debug\net8.0\proyectoElias.Model.AssemblyInfoInputs.cache
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\obj\Debug\net8.0\proyectoElias.Model.AssemblyInfo.cs
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\obj\Debug\net8.0\proyectoElias.Model.csproj.CoreCompileInputs.cache
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\obj\Debug\net8.0\proyectoElias.Model.dll
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\obj\Debug\net8.0\refint\proyectoElias.Model.dll
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\obj\Debug\net8.0\proyectoElias.Model.pdb
+C:\Users\byron\source\repos\proyectoElias\proyectoElias.Model\obj\Debug\net8.0\ref\proyectoElias.Model.dll
