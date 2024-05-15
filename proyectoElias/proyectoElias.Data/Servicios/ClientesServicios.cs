@@ -27,17 +27,20 @@ namespace proyectoElias.Data.Servicios
         }
 
 
-
+        //-------------------------------------
         public async Task<bool> DeleteClientes(Clientes clientes)
         {
             var db = dbConnection();
             
-            var sql = @"DELETE FROM cars WHERE cliente_id = @Cliente_id";
+            var sql = @"DELETE FROM clientes WHERE cliente_id = @Cliente_id";
 
             var result = await db.ExecuteAsync(sql, new {Cliente_id = clientes.Cliente_id});
 
             return result > 0;
         }
+
+
+
 
         public Task<Clientes> GetDetalles(int clienteId)
         {
@@ -49,6 +52,10 @@ namespace proyectoElias.Data.Servicios
 
             return db.QueryFirstOrDefaultAsync<Clientes>(sql, new { Cliente_id = clienteId });
         }
+
+
+
+
 
         public Task<IEnumerable<Clientes>> GetTodosClientes()
         {

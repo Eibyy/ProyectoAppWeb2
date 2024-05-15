@@ -15,6 +15,7 @@ builder.Services.AddSingleton(mySQLConfiguracion);
 
 // Register the IClientesServicios
 builder.Services.AddScoped<IClientesServicios, ClientesServicios>();
+builder.Services.AddScoped<IEquiposServices, EquiposServicios>();
 
 var app = builder.Build();
 
