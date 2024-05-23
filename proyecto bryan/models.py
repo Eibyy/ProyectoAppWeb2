@@ -1,4 +1,21 @@
 from app import db
+# from werkzeug.security import generate_password_hash, check_password_hash
+
+class Usuario(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64), unique=True, nullable=False)
+    password = db.Column(db.String(128), nullable=False)
+    
+    # def set_password(self, password):
+    #     self.password_hash = generate_password_hash(password)
+
+    # def check_password(self, password):
+    #     return check_password_hash(self.password_hash, password)
+    
+    def check_password(self, password):
+        return password == self.password
+    
+    
 
 class Personal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -6,6 +23,7 @@ class Personal(db.Model):
     edad = db.Column(db.Integer, nullable=False)
     direccion = db.Column(db.String(144), nullable=False)
     salario = db.Column(db.Float, nullable=False)
+    estado_eliminado = db.Column(db.Boolean, default = False, nullable=False)
     rol_id = db.Column(db.Integer, db.ForeignKey('rol.id'), nullable=False)
     rol = db.relationship('Rol', backref='personal', lazy=True)
 
@@ -43,7 +61,9 @@ class Cliente(db.Model):
     telefono = db.Column(db.Integer, nullable = False)
     direccion = db.Column(db.String(144), nullable = False)
     email = db.Column(db.String(144), nullable = False)
+    estado_eliminado = db.Column(db.Boolean, default = False, nullable=False)
     clases = db.relationship('Clase', secondary=clase_cliente, back_populates='clientes')
+
     
 
 class Equipo(db.Model):

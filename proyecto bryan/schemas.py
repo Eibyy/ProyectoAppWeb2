@@ -1,10 +1,20 @@
 from app import ma
-from models import Personal, Rol, Clase, Cliente, Equipo
+from models import Personal, Rol, Clase, Cliente, Equipo, Usuario
+from marshmallow import fields
+
+class UsuarioSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Usuario
+        load_instance = True
+        include_fk = True
+
+    # password_hash = fields.String(load_only=True)
+
 
 class PersonalSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Personal
-        include_fk = True
+
 
 class RolSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
@@ -44,3 +54,6 @@ clientes_schema = ClienteSchema(many=True)
 
 equipo_schema = EquipoSchema()
 equipos_schema = EquipoSchema(many=True)
+
+usuario_schema = UsuarioSchema()
+usuarios_schema = UsuarioSchema(many=True)
