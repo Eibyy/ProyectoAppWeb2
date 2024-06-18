@@ -11,22 +11,20 @@ public class ClaseEquipo {
     @Column(name = "clase_equipo_id")
     private Long claseEquipoId;
 
-    @ManyToOne
-    @JoinColumn(name = "clase_id")
-    private Clase clase;
+    @Column(name = "clase_id")
+    private Long clase_id;
 
-    @ManyToOne
-    @JoinColumn(name = "equipo_id")
-    private Equipo equipo;
+    @Column(name = "equipo_id")
+    private Long equipo_id;
 
     @Column(name = "cantidad")
     private int cantidad;
 
     public ClaseEquipo(){}
-    public ClaseEquipo(Long claseEquipoId, Clase clase, Equipo equipo, int cantidad) {
+    public ClaseEquipo(Long claseEquipoId, Long clase, Long equipo, int cantidad) {
         this.claseEquipoId = claseEquipoId;
-        this.clase = clase;
-        this.equipo = equipo;
+        this.clase_id = clase;
+        this.equipo_id = equipo;
         this.cantidad = cantidad;
     }
 
@@ -38,20 +36,20 @@ public class ClaseEquipo {
         this.claseEquipoId = claseEquipoId;
     }
 
-    public Clase getClase() {
-        return clase;
+    public Long getClase() {
+        return clase_id;
     }
 
-    public void setClase(Clase clase) {
-        this.clase = clase;
+    public void setClase(Long clase) {
+        this.clase_id = clase;
     }
 
-    public Equipo getEquipo() {
-        return equipo;
+    public Long getEquipo() {
+        return equipo_id;
     }
 
-    public void setEquipo(Equipo equipo) {
-        this.equipo = equipo;
+    public void setEquipo(Long equipo) {
+        this.equipo_id = equipo;
     }
 
     public int getCantidad() {

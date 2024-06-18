@@ -3,51 +3,56 @@ package com.uleam.tejenaproyecto.controlador;
 import com.uleam.tejenaproyecto.interfaceservice.IPersonalService;
 import com.uleam.tejenaproyecto.modelo.Personal;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller
-@RequestMapping
+@RestController
+@RequestMapping("/personal")
 public class PersonalController {
 
     @Autowired
-    private IPersonalService services;
+    private IPersonalService personalService;
 
-    @GetMapping("/personal/listado")
-    public String listar(Model model) {
-        List<Personal>personal= services.listar();
-        model.addAttribute("personal", personal);
-        return "pages/personal_listado";
-    }
-    @GetMapping("/personal/nuevo")
-    public String agregar(Model model){
-        model.addAttribute("personal", new Personal());
-        return "pages/personal_formulario";
+    @GetMapping
+    public ResponseEntity<List<Personal>> getAllPersonal() {
+        List<Personal> personalList = personalService.listar();
+        return ResponseEntity.ok().body(personalList);
     }
 
-    @PostMapping("/personal/save")
-    public String save(@Validated Personal p, Model model){
-        services.save(p);
-        return "redirect:/personal/listado";
-    }
-    @GetMapping("/personal/editar/{id}")
-    public String editar(@PathVariable int id, Model model){
-        Optional<Personal> personales =services.listarId(id);
-        model.addAttribute("personal", personales);
-        return "pages/personal_formulario";
-    }
-    @GetMapping("/personal/eliminar/{id}")
-    public String eliminar(Model model, @PathVariable int id){
-        services.delete(id);
-        return "redirect:/personal/listado";
+    @PostMapping
+    public ResponseEntity<Personal> savePersonal(@Validated @RequestBody Personal personal) {
+        Personal savedPersonal = personalService.save(personal);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedPersonal);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Personal>> getPersonalById(@PathVariable("id") Long id) {
+        Optional<Personal> personal = personalService.listarId(id);
+        if (personal.isPresent()) {
+            return ResponseEntity.ok().body(personal);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Personal> updatePersonal(@RequestBody Personal personal, @PathVariable("id") Long id) {
+        Personal updatedPersonal = personalService.update(id, personal);
+        return ResponseEntity.ok().body(updatedPersonal);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePersonalById(@PathVariable("id") Long id) {
+        boolean deleted = personalService.delete(id);
+        if (deleted) {
+            return ResponseEntity.ok().body("User with id " + id + " has been successfully deleted.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User with id " + id + " was not found.");
+        }
+    }
 }

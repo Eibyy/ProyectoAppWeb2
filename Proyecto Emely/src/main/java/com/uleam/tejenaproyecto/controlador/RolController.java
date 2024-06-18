@@ -1,55 +1,53 @@
 package com.uleam.tejenaproyecto.controlador;
 
-import com.uleam.tejenaproyecto.interfaceservice.IPersonalService;
 import com.uleam.tejenaproyecto.interfaceservice.IRolService;
-import com.uleam.tejenaproyecto.modelo.Personal;
 import com.uleam.tejenaproyecto.modelo.Rol;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller
-@RequestMapping
+@RestController
+@RequestMapping("/roles")
 public class RolController {
 
     @Autowired
-    private IRolService services;
+    private IRolService rolService;
 
-    @GetMapping("/rol/listado")
-    public String listar(Model model) {
-        List<Rol> rol= services.listar();
-        model.addAttribute("rol", rol);
-        return "pages/rol_listado";
-    }
-    @GetMapping("/rol/nuevo")
-    public String agregar(Model model){
-        model.addAttribute("rol", new Rol());
-        return "pages/rol_formulario";
+    @GetMapping
+    public ResponseEntity<List<Rol>> getAllRoles() {
+        List<Rol> roles = rolService.listar();
+        return ResponseEntity.ok().body(roles);
     }
 
-    @PostMapping("/rol/save")
-    public String save(@Validated Rol p, Model model){
-        services.save(p);
-        return "redirect:/rol/listado";
-    }
-    @GetMapping("/rol/editar/{id}")
-    public String editar(@PathVariable int id, Model model){
-        Optional<Rol> roles =services.listarId(id);
-        model.addAttribute("rol", roles);
-        return "pages/rol_formulario";
-    }
-    @GetMapping("/rol/eliminar/{id}")
-    public String eliminar(Model model, @PathVariable int id){
-        services.delete(id);
-        return "redirect:/rol/listado";
+    @PostMapping
+    public ResponseEntity<Rol> saveRol(@RequestBody Rol rol) {
+        Rol savedRol = rolService.save(rol);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedRol);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Rol> getRolById(@PathVariable("id") Long id) {
+        Optional<Rol> rol = rolService.listarId(id);
+        return rol.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Rol> updateRol(@RequestBody Rol rol, @PathVariable("id") Long id) {
+        Rol updatedRol = rolService.update(id, rol);
+        return ResponseEntity.ok().body(updatedRol);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteRolById(@PathVariable("id") Long id) {
+        boolean deleted = rolService.delete(id);
+        if (deleted) {
+            return ResponseEntity.ok().body("Role with id " + id + " has been successfully deleted.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Role with id " + id + " was not found.");
+        }
+    }
 }

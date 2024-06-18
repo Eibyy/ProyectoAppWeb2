@@ -20,17 +20,16 @@ public class Clase {
     @Column(name = "horario")
     private String horario;
 
-    @ManyToOne
-    @JoinColumn(name = "personal_id")
-    private Personal personal;
+    @Column(name = "personal_id")
+    private Long personal_id;
 
     public Clase(){}
-    public Clase(Long claseId, String nombreClase, String descripcion, String horario, Personal personal) {
+    public Clase(Long claseId, String nombreClase, String descripcion, String horario, Long personal) {
         this.claseId = claseId;
         this.nombreClase = nombreClase;
         this.descripcion = descripcion;
         this.horario = horario;
-        this.personal = personal;
+        this.personal_id = personal;
     }
 
     public Long getClaseId() {
@@ -65,11 +64,11 @@ public class Clase {
         this.horario = horario;
     }
 
-    public Personal getPersonal() {
-        return personal;
+    public Long getPersonal() {
+        return this.personal_id;
     }
 
-    public void setPersonal(Personal personal) {
-        this.personal = personal;
+    public void setPersonal(Long personal) {
+        this.personal_id = personal;
     }
 }

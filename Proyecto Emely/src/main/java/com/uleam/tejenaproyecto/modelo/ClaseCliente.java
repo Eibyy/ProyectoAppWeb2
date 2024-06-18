@@ -13,20 +13,18 @@ public class ClaseCliente {
     @Column(name = "clase_cliente_id")
     private Long claseClienteId;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    @Column(name = "cliente_id")
+    private Long cliente;
 
-    @ManyToOne
-    @JoinColumn(name = "clase_id")
-    private Clase clase;
+    @Column(name = "clase_id")
+    private Long clase;
 
     @Column(name = "fecha_registro")
     private LocalDate fechaRegistro;
 
     public ClaseCliente(){}
 
-    public ClaseCliente(Long claseClienteId, Cliente cliente, Clase clase, LocalDate fechaRegistro) {
+    public ClaseCliente(Long claseClienteId, Long cliente, Long clase, LocalDate fechaRegistro) {
         this.claseClienteId = claseClienteId;
         this.cliente = cliente;
         this.clase = clase;
@@ -41,19 +39,19 @@ public class ClaseCliente {
         this.claseClienteId = claseClienteId;
     }
 
-    public Cliente getCliente() {
+    public Long getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Long cliente) {
         this.cliente = cliente;
     }
 
-    public Clase getClase() {
+    public Long getClase() {
         return clase;
     }
 
-    public void setClase(Clase clase) {
+    public void setClase(Long clase) {
         this.clase = clase;
     }
 

@@ -31,7 +31,7 @@ function eliminar(id) {
             });
 
             if (result){
-                location.href="/listar"
+                location.href="/listado"
             }
         } else if (
             result.dismiss === Swal.DismissReason.cancel
