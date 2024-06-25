@@ -90,52 +90,52 @@ def eliminacion_logica_cliente(id):
 
 
 #Personal
-@app.route('/personal', methods=['GET'])
-@jwt_required()
-def get_personal():
-    personal = Personal.query.all()
-    return personales_schema.jsonify(personal)
+# @app.route('/personal', methods=['GET'])
+# @jwt_required()
+# def get_personal():
+#     personal = Personal.query.all()
+#     return personales_schema.jsonify(personal)
 
-@app.route('/personal', methods=['POST'])
-@jwt_required()
-def add_personal():
-    nombre = request.json["nombre"]
-    edad = request.json["edad"]
-    direccion = request.json["direccion"]
-    salario = request.json["salario"]
-    rol_id = request.json["rol_id"]
-    nuevo_personal = Personal(nombre=nombre, edad=edad, direccion = direccion, salario = salario, rol_id = rol_id)
-    db.session.add(nuevo_personal)
-    db.session.commit()
-    return rol_schema.jsonify(nuevo_personal)
+# @app.route('/personal', methods=['POST'])
+# @jwt_required()
+# def add_personal():
+#     nombre = request.json["nombre"]
+#     edad = request.json["edad"]
+#     direccion = request.json["direccion"]
+#     salario = request.json["salario"]
+#     rol_id = request.json["rol_id"]
+#     nuevo_personal = Personal(nombre=nombre, edad=edad, direccion = direccion, salario = salario, rol_id = rol_id)
+#     db.session.add(nuevo_personal)
+#     db.session.commit()
+#     return rol_schema.jsonify(nuevo_personal)
 
-@app.route('/personal/<int:id>', methods=['PUT'])
-@jwt_required()
-def eliminacion_logica_personal(id):
-    personal = Personal.query.get_or_404(id)
-    personal.estado_eliminado = request.json.get('estado_eliminado', personal.estado_eliminado)
+# @app.route('/personal/<int:id>', methods=['PUT'])
+# @jwt_required()
+# def eliminacion_logica_personal(id):
+#     personal = Personal.query.get_or_404(id)
+#     personal.estado_eliminado = request.json.get('estado_eliminado', personal.estado_eliminado)
     
-    db.session.commit()
-    return jsonify({"message": "Estado actualizado con éxito", "cliente": rol_schema.dump(personal)})
+#     db.session.commit()
+#     return jsonify({"message": "Estado actualizado con éxito", "cliente": rol_schema.dump(personal)})
 
-#Equipos
-@app.route('/equipo', methods=['GET'])
-@jwt_required()
-def get_equipo():
-    equipo = Equipo.query.all()
-    return personales_schema.jsonify(equipo)
+# #Equipos
+# @app.route('/equipo', methods=['GET'])
+# @jwt_required()
+# def get_equipo():
+#     equipo = Equipo.query.all()
+#     return personales_schema.jsonify(equipo)
 
-@app.route('/equipo', methods=['POST'])
-@jwt_required()
-def add_equipo():
-    nombre = request.json["nombre"]
-    marca = request.json["marca"]
-    modelo = request.json["modelo"]
-    salario = request.json["salario"]
-    nuevo_equipo = Equipo(nombre=nombre, marca=marca, modelo = modelo, salario = salario)
-    db.session.add(nuevo_equipo)
-    db.session.commit()
-    return rol_schema.jsonify(nuevo_equipo)
+# @app.route('/equipo', methods=['POST'])
+# @jwt_required()
+# def add_equipo():
+#     nombre = request.json["nombre"]
+#     marca = request.json["marca"]
+#     modelo = request.json["modelo"]
+#     salario = request.json["salario"]
+#     nuevo_equipo = Equipo(nombre=nombre, marca=marca, modelo = modelo, salario = salario)
+#     db.session.add(nuevo_equipo)
+#     db.session.commit()
+#     return rol_schema.jsonify(nuevo_equipo)
 
 #Clases 
 @app.route('/clase', methods=['GET'])
@@ -156,21 +156,21 @@ def add_clase():
     db.session.commit()
     return rol_schema.jsonify(nuevo_clase)
 
-#Registro
-@app.route('/register', methods=['POST'])
-def register():
-    data = request.get_json()
-    username = data['username']
-    password = data['password']
+# #Registro
+# @app.route('/register', methods=['POST'])
+# def register():
+#     data = request.get_json()
+#     username = data['username']
+#     password = data['password']
     
-    if Usuario.query.filter_by(username=username).first():
-        return jsonify({"mensaje": "El usuario ya existe"}), 400
+#     if Usuario.query.filter_by(username=username).first():
+#         return jsonify({"mensaje": "El usuario ya existe"}), 400
     
-    new_user = Usuario(username=username, password=password)
-    # new_user.set_password(password)
+#     new_user = Usuario(username=username, password=password)
+#     # new_user.set_password(password)
     
-    db.session.add(new_user)
-    db.session.commit()
+#     db.session.add(new_user)
+#     db.session.commit()
     
-    return usuario_schema.jsonify(new_user), 201
+#     return usuario_schema.jsonify(new_user), 201
 
