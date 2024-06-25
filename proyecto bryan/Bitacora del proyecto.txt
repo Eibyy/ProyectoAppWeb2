@@ -1,38 +1,3 @@
-Lo que debe tener la aplicacion:
-Registro, edicion y eliminacion de personal, y que se le pueda otorgar un rol a cada uno
-registro edicion y eliminacion de clases 
-Registro edicion y eliminacion de clientes
-Equipos disponible o no disponible 
-Agregar editar o eliminar equipos 
-
-Estructura?
-personal: Permita ingresar una foto
-Acciones izquierda listado derecha 
-para editar en una pagina aparte
-Los roles ya deben estar creados y se les asigna 
-
-clientes: misma estructura del personal 
-
-Equipos: misma estructura 
-equipo que se puede ingresar:
-Máquinas cardiovasculares (cintas de correr, bicicletas estáticas, elípticas, etc.).
-Máquinas de musculación (máquinas de poleas, bancos de pesas, etc.).
-Pesas libres (barras, discos de pesas, mancuernas, etc.).
-Equipos de entrenamiento funcional (kettlebells, TRX, bandas elásticas, etc.).
-Equipos para clases grupales (colchonetas, pelotas de ejercicio, steps, etc.).
-Equipos de medición y monitoreo (pulsómetros, medidores de grasa corporal, etc.).
-Puede no necesitar de ningun equipo
-
-clases:
-Elegir que equipo quiere usar 
-elegir el personal que la va a dar
-ingresar el horario
-editar eliminar crear 
-
-interfaz para roles?
-
-
-
 
 Lenguaje: Python
 Framework: Flask
