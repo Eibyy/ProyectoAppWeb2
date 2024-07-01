@@ -1,0 +1,44 @@
+type Query {
+    hello: String
+    getAllPersonal: [Personal]
+    getPersonalById(id: ID!): Personal
+    getAllRoles: [Rol]
+    getRolById(id: ID!): Rol
+}
+
+type Mutation {
+    savePersonal(personal: PersonalInput!): Personal
+    updatePersonal(id: ID!, personal: PersonalInput!): Personal
+    deletePersonalById(id: ID!): String
+    saveRol(rol: RolInput!): Rol
+    updateRol(id: ID!, rol: RolInput!): Rol
+    deleteRolById(id: ID!): String
+}
+
+input PersonalInput {
+    nombre_personal: String
+    edad: Int
+    direccion: String
+    salario: Float
+    rol_id: ID
+}
+
+input RolInput {
+    nombreRol: String
+    descripcion: String
+}
+
+type Personal {
+    personal_id: ID
+    nombre_personal: String
+    edad: Int
+    direccion: String
+    salario: Float
+    rol_id: ID
+}
+
+type Rol {
+    rol_id: ID
+    nombreRol: String
+    descripcion: String
+}
