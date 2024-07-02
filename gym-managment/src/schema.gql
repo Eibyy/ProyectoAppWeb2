@@ -1,0 +1,17 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Personal {
+  id: Int!
+  nombre: String!
+  edad: Int!
+  direccion: String!
+  salario: Float!
+  estado: String!
+  rol_id: Float!
+}
+
+type Query {
+  personal: [Personal!]!
+}
