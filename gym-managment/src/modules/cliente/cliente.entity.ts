@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 @ObjectType()
-export class Personal{
+export class Cliente{
     @PrimaryGeneratedColumn()
     @Field((type)=>Int)
     id: number
@@ -14,21 +14,19 @@ export class Personal{
 
     @Column()
     @Field((type)=>Int)
-    edad: number
+    telefono: number
 
     @Column()
     @Field()
-    direccion: string
+    description: string
 
     @Column()
-    @Field((type)=>Float)
-    salario: number
+    @Field()
+    email: string
+
 
     @Column()
     @Field()
     estado: string
-    
-    @Column()
-    @Field((type)=>Int)
-    rol_id: number
+
 }
