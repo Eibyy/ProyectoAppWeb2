@@ -5,6 +5,9 @@ import { Personal } from "./personal.entity";
 @Injectable()
 export class PersonalService {
 
+
+    constructor(private)
+
     findAll(): Personal[]{
         return [{
             id:1,
