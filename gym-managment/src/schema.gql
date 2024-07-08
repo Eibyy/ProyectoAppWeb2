@@ -9,9 +9,23 @@ type Personal {
   direccion: String!
   salario: Float!
   estado: String!
-  rol_id: Float!
+  rol_id: Int!
 }
 
 type Query {
   personal: [Personal!]!
+  onePersonal(id: Int!): Personal!
+}
+
+type Mutation {
+  createPersonal(personalInput: CreatePersonalInput!): Personal!
+}
+
+input CreatePersonalInput {
+  nombre: String!
+  edad: Int!
+  direccion: String!
+  salario: Float!
+  estado: String!
+  rol_id: Int!
 }

@@ -4,6 +4,10 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { PersonalModule } from "./modules/personal/personal.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { Personal } from "./modules/personal/personal.entity";
+import { Rol } from "./modules/rol/rol.entity";
+import { Cliente } from "./modules/cliente/cliente.entity";
+import { ClientesModule } from "./clientes/clientes.module";
 
 @Module({
   imports: [
@@ -18,10 +22,11 @@ import { TypeOrmModule } from "@nestjs/typeorm";
       username: 'root',
       password: '',
       database: 'proyecto2',
-      entities: [__dirname + '/**/*.entity{.ts, .js}'],
+      entities: [Personal, Cliente, Rol],
       synchronize: true,
     }),
     PersonalModule,
+    ClientesModule,
   ],
   controllers: [],
   providers: [],
